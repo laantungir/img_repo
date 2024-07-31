@@ -26,17 +26,9 @@ for file in "$src_dir"/*; do
   fi
 done
 
+# remove images.json
 
-# for f in color/* ; 
-#     do (echo $f ${f%.*})
-    # do (convert "$f" -set colorspace Gray "docs/${f%.*}-bw.jpg") ; 
-    # do (convert "$f" -set colorspace Gray -separate -average mask "docs/${f%.*}-bw.jpg") ; 
-# done
-
-# # Move the converted images to the "Color" subfolder and delete the original images
-# mkdir -p "${SCRIPT_DIR}"/docs
-# mv "${SCRIPT_DIR}"/*-bw.{jpg,jpeg,png,gif,bmp} "${SCRIPT_DIR}"docs/
-# # rm "${SCRIPT_DIR}"/*-{jpg,jpeg,png,gif,bmp}
+rm docs/images.json
 
 # Set the directory where the script is located
 SCRIPT_DIR=$(dirname "$0")
