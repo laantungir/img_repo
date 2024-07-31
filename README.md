@@ -1,2 +1,2 @@
 # img_repo
-Image repository
+Image repository for B&W images.
