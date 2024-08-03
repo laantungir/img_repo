@@ -53,7 +53,7 @@ cd "${SCRIPT_DIR}"/docs/
 
 
 # # Start a json file
-echo "export const jsonImg = {" > images.mjs
+echo "{" > images.json
 
 for FILE in $(ls -1 *.{jpg,jpeg,png,gif,bmp}); 
   do
@@ -67,15 +67,15 @@ for FILE in $(ls -1 *.{jpg,jpeg,png,gif,bmp});
         \"size\": $SIZE,
         \"dimensions\": [$DIMENSIONS],
         \"uploaded\": $TIMESTAMP,
-        \"posted\": \"\" }" >> images.mjs
+        \"posted\": \"\" }" >> images.json
 
-    echo "" >> images.mjs
-    echo "," >> images.mjs
+    echo "" >> images.json
+    echo "," >> images.json
   done
 
 # Remove the trailing comma and close out the json
-head -n -1 images.mjs > temp.txt ; mv temp.txt images.mjs
-echo "}" >> images.mjs
+head -n -1 images.json > temp.txt ; mv temp.txt images.json
+echo "}" >> images.json
 
 git add .; 
 git commit --allow-empty-message -m '' ;
