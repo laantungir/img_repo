@@ -62,11 +62,12 @@ for FILE in $(ls -1 *.{jpg,jpeg,png,gif,bmp});
 
     SIZE=$(stat --format="%s" "$FILE")
     DIMENSIONS=$(identify -format "%w,%H" "$FILE")
+    CREATEDATE=$(stat -c "%W" "$FILE")
     TIMESTAMP=$(date +%s)
     echo "\"$FILE\":{
         \"size\": $SIZE,
         \"dimensions\": [$DIMENSIONS],
-        \"uploaded\": $TIMESTAMP,
+        \"created\": $CREATEDATE,
         \"posted\": \"\" }" >> images.json
 
     echo "" >> images.json
@@ -77,6 +78,9 @@ for FILE in $(ls -1 *.{jpg,jpeg,png,gif,bmp});
 head -n -1 images.json > temp.txt ; mv temp.txt images.json
 echo "}" >> images.json
 
+
+eval `ssh-agent -s`;
+ssh-add ~/.ssh/lt_github;
 git add .; 
 git commit --allow-empty-message -m '' ;
 git push origin main;
