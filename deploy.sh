@@ -1,10 +1,6 @@
 
 
 
-vite build; 
-rm -fr docs/*; 
-cp -r build/* docs/; 
-
 eval `ssh-agent -s`
 ssh-add ~/.ssh/lt_github
 git add .; 
