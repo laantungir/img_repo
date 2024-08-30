@@ -53,9 +53,9 @@ cd "${SCRIPT_DIR}"/docs/
 
 
 # # Start a json file
-echo "{" > images.json
+echo "[" > images.json
 
-for FILE in $(ls -1 *.{jpg,jpeg,png,gif,bmp}); 
+for FILE in $(ls -1 *.{jpg,jpeg,png,gif,bmp,webp}); 
   do
     # Echo out the filename of the image
     echo "3>" "$FILE"
@@ -64,7 +64,8 @@ for FILE in $(ls -1 *.{jpg,jpeg,png,gif,bmp});
     DIMENSIONS=$(identify -format "%w,%H" "$FILE")
     CREATEDATE=$(stat -c "%W" "$FILE")
     TIMESTAMP=$(date +%s)
-    echo "\"$FILE\":{
+    echo "{
+        \"file\": \"$FILE\",
         \"size\": $SIZE,
         \"dimensions\": [$DIMENSIONS],
         \"created\": $CREATEDATE,
@@ -76,7 +77,7 @@ for FILE in $(ls -1 *.{jpg,jpeg,png,gif,bmp});
 
 # Remove the trailing comma and close out the json
 head -n -1 images.json > temp.txt ; mv temp.txt images.json
-echo "}" >> images.json
+echo "]" >> images.json
 
 
 eval `ssh-agent -s`;
