@@ -1,6 +1,6 @@
 {
   "name": "img_repo",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Image repository for B&W images.",
   "main": "index.js",
   "directories": {
