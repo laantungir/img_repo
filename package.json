@@ -1,16 +1,16 @@
 {
   "name": "img_repo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Image repository for B&W images.",
   "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"deploy": "./deploy.sh"
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "./deploy.sh"
   },
   "author": "",
   "license": "ISC"
